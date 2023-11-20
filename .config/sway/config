@@ -14,6 +14,7 @@ popup_during_fullscreen smart
 workspace_auto_back_and_forth no
 focus_on_window_activation urgent
 show_marks yes
+# primary_selection disabled
 
 # --- Variables ---
 
@@ -27,6 +28,10 @@ set $files dolphin
 set $editor alacritty nvim
 set $browser firefox
 set $ide pycharm
+
+set $screenshot     "~/.config/sway/scripts/screenshot"
+set $screencapture  "xdg-open https://gifcap.dev"
+set $colorpicker    "hyprpicker -a"
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -51,6 +56,10 @@ bindsym $mod+q          kill
 bindsym $mod+Shift+c    reload
 bindsym $alt+Control+l 	exec "$lockscreen"
 bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+bindsym $mod+Print          exec "$screenshot"
+bindsym $mod+Shift+Print    exec "$screencapture"
+bindsym $mod+c              exec "$colorpicker"
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -206,11 +215,11 @@ include /etc/sway/config.d/*
 
 # --- Waybar ---
 
-bar {
-    swaybar_command waybar
-}
+# bar {
+#     swaybar_command waybar
+# }
 
 exec autotiling
 
 # --- Notification Center ---
-exec swaync
+# exec swaync

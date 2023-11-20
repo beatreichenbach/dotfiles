@@ -3,6 +3,9 @@ antidote load
 
 ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 
+# make sure to move $HOME/.zcompdump in right dir
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
 fi
@@ -23,5 +26,6 @@ bindkey "^[[1;5D" backward-word
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias ll='ls -la'
+alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME/nvidia/settings"'
 
 eval "$(starship init zsh)"

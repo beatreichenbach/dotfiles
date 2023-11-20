@@ -1,0 +1,8 @@
+/*
+Qogir theme fix
+Can be changed with install options https://github.com/vinceliuice/Qogir-theme#install
+*/
+window.thunar notebook scrolledwindow.frame.standard-view, .nemo-window .nemo-window-pane notebook scrolledwindow.view,
+.nautilus-window notebook > stack {
+  background-image: none;
+}

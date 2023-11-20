@@ -1,0 +1,10 @@
+[Default]
+save_dir=$HOME/Desktop
+save_filename_format=snap_%Y%m%d_%H%M%S.png
+show_panel=true
+line_size=5
+text_size=16
+text_font=monospace
+paint_mode=rectangle
+early_exit=false
+fill_shape=false
