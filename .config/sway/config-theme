@@ -5,8 +5,8 @@ exec wpaperd
 # --- Appearance ---
 
 set $opacity 0.9
-for_window [class=".*"] opacity $opacity
-for_window [app_id=".*"] opacity $opacity
+# for_window [class=".*"] opacity $opacity
+# for_window [app_id=".*"] opacity $opacity
 
 default_border                  pixel 1
 default_floating_border         pixel 1

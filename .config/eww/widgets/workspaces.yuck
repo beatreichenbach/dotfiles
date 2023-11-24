@@ -1,0 +1,18 @@
+(deflisten workspace_list `~/.config/eww/scripts/workspaces`)
+
+(defwidget workspaces [workspace_list]
+    (box
+        :class "workspaces"
+        :orientation "h"
+        :space-evenly true
+        :halign "start"
+        :valign "center"
+
+        (for w in workspace_list
+            (button
+                :onclick `swaymsg workspace "${w.name}"`
+                :class {w.focused ? "focused" : ""} `${w.name}`
+            )
+        )
+    )
+)

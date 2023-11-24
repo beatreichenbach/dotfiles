@@ -6,7 +6,7 @@ Created by saimoom **/
 }
 
 /** General **/
-.bar_class {
+.bar {
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 2px;
     margin: 12px;
@@ -30,6 +30,11 @@ tooltip label {
 
 
 /** Widgets **/
+
+.clock {
+    background-color: #ff00f0;
+    font-size: 24;
+}
 
 .clock_time_sep {
     font-size: 16;
@@ -151,6 +156,7 @@ background-color: #0f0f17;
   margin: 0px 10px 0px 0px;
 }
 
+
 /* Unoccupied */
 .0 {
 color: #3e424f;
@@ -198,17 +204,16 @@ color: #3e424f;
 
 }
 // Calendar
-.cal {
+.calendar {
   background-color: #0f0f17;
   font-family: JetBrainsMono Nerd Font;
   font-size: 18px;
   font-weight: normal;
 
-.cal-in {
+.calendar {
     padding: 0px 10px 0px 10px;
-    color: #bfc9db;
 
-.cal {
+    .calendar {
      &.highlight {
           padding: 20px;
       }
@@ -445,3 +450,14 @@ color: #bfc9db;
 	margin : 0px 0px 0px 0px;
 }
 
+
+
+
+
+
+.workspaces {
+    color: #ffffff;
+}
+.workspaces .focused {
+    color: #ff00ff;
+}
