@@ -53,7 +53,7 @@ bindsym $mod+Shift+i 			exec $ide
 # --- Key Bindings ---
 
 bindsym $mod+q          kill
-bindsym $mod+d          exec $menu
+bindsym $alt+F2         exec $menu
 bindsym $mod+Shift+c    reload
 # bindsym $alt+Control+l 	exec "$lockscreen"
 bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -215,12 +215,13 @@ include ~/.config/sway/config-hardware
 
 include /etc/sway/config.d/*
 
-# --- Waybar ---
+# --- exec ---
 
 # bar {
 #     swaybar_command waybar
 # }
 
+exec ~/.config/eww/scripts/start.sh
 exec autotiling
 
 # --- Notification Center ---

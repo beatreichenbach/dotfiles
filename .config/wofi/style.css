@@ -26,7 +26,6 @@
 	background-color: @background;
 	color: @foreground;
 	border: 2px solid @background-alt;
-	border-radius: 12px;
 }
 
 #outer-box {
@@ -74,5 +73,4 @@
 }
 
 #input, #entry:selected {
-	border-radius: 30px;
 }
