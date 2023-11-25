@@ -1,0 +1,22 @@
+(defpoll calendar_day
+    :interval "1h"
+    :initial 0
+    "date +%d"
+)
+(defpoll calendar_year
+    :interval "24h"
+    :initial 0
+    "date +%Y"
+)
+
+(defwidget calendar_frame []
+	(box
+	    :class "calendar_frame"
+
+        (calendar
+            :class "calendar"
+            :day calendar_day
+            :year calendar_year
+        )
+    )
+)

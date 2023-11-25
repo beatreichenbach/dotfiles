@@ -1,0 +1,132 @@
+(defvar music_reveal false)
+
+(defpoll song :interval "2s"  "widgets/music/music_info --song")
+(defpoll artist :interval "2s"  "widgets/music/music_info --artist")
+(defpoll current_status :interval "1s"  "widgets/music/music_info --time")
+(defpoll song_status :interval "2s"  "widgets/music/music_info --status")
+(defpoll cover_art :interval "2s"  "widgets/music/music_info --cover")
+
+
+(defpoll music_metadata :interval "1s" :initial "{}" "widgets/music/get_music.sh")
+
+
+(defwidget music_controls []
+    (box
+        :class "music_controls"
+        :orientation "h"
+        (button
+            :class "music_prev"
+            :onclick "~/.config/eww/scripts/music_info --prev"
+            ""
+        )
+        (button
+            :class "music_play"
+            :onclick "~/.config/eww/scripts/music_info --toggle"
+            "${music_metadata.status == 'Playing' ? '' : ''}"
+        )
+        (button
+            :class "music_next"
+            :onclick "~/.config/eww/scripts/music_info --next"
+            ""
+        )
+    )
+)
+
+(defwidget music []
+    (eventbox
+        :onhover "${eww} update music_reveal=true"
+		:onhoverlost "${eww} update music_reveal=false"
+		(box
+		    :class "music"
+		    :orientation "h"
+		    :space-evenly "false"
+		    :spacing 8
+
+			(button
+			    :class "music_label"
+			    :onclick "~/.config/eww/scripts/pop music"
+			    "${music_metadata.artist} - ${music_metadata.title}"
+			)
+            (revealer
+                :transition "slideright"
+                :reveal music_reveal
+                :duration duration
+                (music_controls)
+            )
+        )
+    )
+)
+
+(defwidget music_frame []
+    (box
+        :class "music_frame"
+        :orientation "h"
+        :space-evenly "false"
+        :spacing 16
+
+		(box
+		    :class "music_art"
+			:style "background-image: url('${music_metadata.art}');"
+	    )
+
+        (box
+            :orientation "h"
+            :space-evenly "false"
+
+            (box
+                :class "music_info"
+                :orientation "v"
+                :space-evenly "false"
+                :spacing 8
+
+                (label
+                    :class "music_title"
+                    :halign "start"
+                    :limit-width 40
+                    :text "${music_metadata.title}"
+                )
+
+                (label
+                    :class "music_artist"
+                    :halign "start"
+                    :limit-width 40
+                    :text "${music_metadata.artist}"
+                )
+
+                (box
+                    :orientation "h"
+                    :space-evenly "false"
+                    :spacing 8
+
+                    (button
+                        :class "music_prev"
+                        :onclick "~/.config/eww/scripts/music_info --prev"
+                        ""
+                    )
+
+                    (scale
+                        :class "music_bar"
+                        :hexpand true
+
+                        :min 0
+                        :active true
+                        :max 100
+                        :value 21
+                    )
+
+                    (button
+                        :class "music_next"
+                        :onclick "~/.config/eww/scripts/music_info --next"
+                        ""
+                    )
+                )
+            )
+
+            (button
+                :class "music_play"
+                :onclick "~/.config/eww/scripts/music_info --toggle"
+                "${music_metadata.status == 'Playing' ? '' : ''}"
+            )
+        )
+    )
+)

@@ -1,9 +1,9 @@
 (defvar time_reveal false)
 
-(defpoll clock_time :interval "1m" "date +%H:%M")
+(defpoll clock_time :interval "1m" "date +'%a%l:%M %p'")
 (defpoll clock_date :interval "1h" "date +%m/%d/%Y")
 
-(defwidget clock_module []
+(defwidget clock []
     (eventbox
         :onhover "${eww} update time_reveal=true"
         :onhoverlost "${eww} update time_reveal=false"
@@ -14,7 +14,7 @@
             :valign "center"
             (revealer
                 :transition "slidedown"
-                :reveal "${!time_reveal}"
+                :reveal {!time_reveal}
                 :duration duration
                 (label :text clock_time :class "clock_time" )
             )
@@ -25,7 +25,8 @@
                 :duration duration
                 (button
                     :class "clock_date"
-                    :onclick "$HOME/.config/eww/scripts/pop calendar" clock_date
+                    :onclick "scripts/pop calendar"
+                    clock_date
                 )
             )
         )

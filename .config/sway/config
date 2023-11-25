@@ -217,12 +217,6 @@ include /etc/sway/config.d/*
 
 # --- exec ---
 
-# bar {
-#     swaybar_command waybar
-# }
-
 exec ~/.config/eww/scripts/start.sh
 exec autotiling
-
-# --- Notification Center ---
 # exec swaync

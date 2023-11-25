@@ -1,20 +1,24 @@
 #!/bin/bash
 
+focused_monitor() {
+    return $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+}
+
 calendar() {
 LOCK_FILE="$HOME/.cache/eww-calendar.lock"
 EWW_BIN="/usr/bin/eww"
 
 run() {
-    ${EWW_BIN} -c $HOME/.config/eww open calendar
+    ${EWW_BIN} -c $HOME/.config/eww open calendar_DP-1
 }
 
 # Open widgets
 if [[ ! -f "$LOCK_FILE" ]]; then
-    ${EWW_BIN} -c $HOME/.config/eww close system music_win audio_ctl
+    ${EWW_BIN} -c $HOME/.config/eww close system music_DP-1 audio_ctl
     touch "$LOCK_FILE"
     run && echo "ok good!"
 else
-    ${EWW_BIN} -c $HOME/.config/eww close calendar
+    ${EWW_BIN} -c $HOME/.config/eww close calendar_DP-1
     rm "$LOCK_FILE" && echo "closed"
 fi
 }
@@ -30,7 +34,7 @@ run() {
 
 # Open widgets
 if [[ ! -f "$LOCK_FILE_MEM" ]]; then
-    ${EWW_BIN} -c $HOME/.config/eww close calendar music_win audio_ctl
+    ${EWW_BIN} -c $HOME/.config/eww close calendar_DP-1 music_DP-1 audio_ctl
     touch "$LOCK_FILE_MEM"
     run && echo "ok good!"
 else
@@ -45,16 +49,16 @@ LOCK_FILE_SONG="$HOME/.cache/eww-song.lock"
 EWW_BIN="/usr/bin/eww"
 
 run() {
-    ${EWW_BIN} -c $HOME/.config/eww open music_win
+    ${EWW_BIN} -c $HOME/.config/eww open music_DP-1
 }
 
 # Open widgets
 if [[ ! -f "$LOCK_FILE_SONG" ]]; then
-    ${EWW_BIN} -c $HOME/.config/eww close system calendar
+    ${EWW_BIN} -c $HOME/.config/eww close system calendar_DP-1
     touch "$LOCK_FILE_SONG"
     run && echo "ok good!"
 else
-    ${EWW_BIN} -c $HOME/.config/eww close music_win
+    ${EWW_BIN} -c $HOME/.config/eww close music_DP-1
     rm "$LOCK_FILE_SONG" && echo "closed"
 fi
 }
@@ -71,7 +75,7 @@ run() {
 
 # Open widgets
 if [[ ! -f "$LOCK_FILE_AUDIO" ]]; then
-    ${EWW_BIN} -c $HOME/.config/eww close system calendar music
+    ${EWW_BIN} -c $HOME/.config/eww close system calendar_DP-1 music
     touch "$LOCK_FILE_AUDIO"
     run && echo "ok good!"
 else

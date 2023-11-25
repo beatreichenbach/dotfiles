@@ -1,0 +1,21 @@
+.workspaces {
+    //padding: 0.25rem;
+    background-color: $background;
+    color: $base7;
+}
+.workspaces button {
+    min-width: 1.5rem;
+    padding: 0.25rem;
+
+    &.focused {
+        background-color: $primary;
+        color: $bright_foreground;
+        font-weight: bold;
+    }
+
+    &:hover {
+        background-color: $dim_background;
+        color: $bright_foreground;
+    }
+}
+
