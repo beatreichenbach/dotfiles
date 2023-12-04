@@ -1,14 +1,18 @@
 (defvar music_reveal false)
 
-(defpoll song :interval "2s"  "widgets/music/music_info --song")
-(defpoll artist :interval "2s"  "widgets/music/music_info --artist")
-(defpoll current_status :interval "1s"  "widgets/music/music_info --time")
-(defpoll song_status :interval "2s"  "widgets/music/music_info --status")
-(defpoll cover_art :interval "2s"  "widgets/music/music_info --cover")
-
-
-(defpoll music_metadata :interval "1s" :initial "{}" "widgets/music/get_music.sh")
-
+(defpoll
+    music_metadata
+    :interval "1s"
+    :initial '{
+        "status": "",
+        "artist": "",
+        "title": "",
+        "art": "",
+        "duration": 0,
+        "position": 0
+      }'
+    "widgets/music/get_music.sh"
+)
 
 (defwidget music_controls []
     (box
@@ -16,17 +20,17 @@
         :orientation "h"
         (button
             :class "music_prev"
-            :onclick "~/.config/eww/scripts/music_info --prev"
+            :onclick "widgets/music/set_music.sh previous"
             ""
         )
         (button
             :class "music_play"
-            :onclick "~/.config/eww/scripts/music_info --toggle"
-            "${music_metadata.status == 'Playing' ? '' : ''}"
+            :onclick "widgets/music/set_music.sh play-pause"
+            "${music_metadata.status == 'Playing' ? '' : ''}"
         )
         (button
             :class "music_next"
-            :onclick "~/.config/eww/scripts/music_info --next"
+            :onclick "widgets/music/set_music.sh next"
             ""
         )
     )
@@ -34,8 +38,10 @@
 
 (defwidget music []
     (eventbox
-        :onhover "${eww} update music_reveal=true"
-		:onhoverlost "${eww} update music_reveal=false"
+        :onhover "eww update music_reveal=true"
+		:onhoverlost "eww update music_reveal=false"
+		:visible {music_metadata.title != ''}
+
 		(box
 		    :class "music"
 		    :orientation "h"
@@ -44,7 +50,7 @@
 
 			(button
 			    :class "music_label"
-			    :onclick "~/.config/eww/scripts/pop music"
+			    :onclick "scripts/open.sh music"
 			    "${music_metadata.artist} - ${music_metadata.title}"
 			)
             (revealer
@@ -100,7 +106,7 @@
 
                     (button
                         :class "music_prev"
-                        :onclick "~/.config/eww/scripts/music_info --prev"
+                        :onclick "widgets/music/set_music.sh previous"
                         ""
                     )
 
@@ -111,12 +117,12 @@
                         :min 0
                         :active true
                         :max 100
-                        :value 21
+                        :value "${music_metadata.position}"
                     )
 
                     (button
                         :class "music_next"
-                        :onclick "~/.config/eww/scripts/music_info --next"
+                        :onclick "widgets/music/set_music.sh next"
                         ""
                     )
                 )
@@ -124,8 +130,8 @@
 
             (button
                 :class "music_play"
-                :onclick "~/.config/eww/scripts/music_info --toggle"
-                "${music_metadata.status == 'Playing' ? '' : ''}"
+                :onclick "widgets/music/set_music.sh play-pause"
+                "${music_metadata.status == 'Playing' ? '' : ''}"
             )
         )
     )

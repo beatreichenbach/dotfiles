@@ -1,3 +1,5 @@
+#!/bin/env python3
+
 import os
 import atexit
 import readline
@@ -8,10 +10,12 @@ try:
 except OSError:
     pass
 
+
 def write_history():
     try:
         readline.write_history_file(history)
     except OSError:
         pass
+
 
 atexit.register(write_history)

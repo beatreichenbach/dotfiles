@@ -1,78 +1,44 @@
-(defvar vol_reveal false)
-(defvar eww "/usr/bin/eww -c $HOME/.config/eww")
+(defvar volume_reveal false)
 
-(defpoll mic_percent :interval "3s" "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
-(defpoll volume_percent :interval "3s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+(defpoll
+    audio_metadata
+    :interval "1s"
+    :initial '{
+        "master": 0
+      }'
+    "widgets/audio/get_audio.sh"
+)
 
 (defwidget volume []
     (eventbox
-        :onhover "${eww} update vol_reveal=true"
-    	:onhoverlost "${eww} update vol_reveal=false"
+        :onhover "eww update volume_reveal=true"
+    	:onhoverlost "eww update volume_reveal=false"
+
         (box
-            :class "module-2"
-            :space-evenly "false"
+            :class "volume"
+            :space-evenly false
             :orientation "h"
-            :spacing "3"
+
             (button
-                :onclick "scripts/pop audio"
                 :class "volume_icon"
                 ""
             )
+
             (revealer
                 :transition "slideleft"
-                :reveal vol_reveal
+                :reveal volume_reveal
                 :duration duration
+
                 (scale
-                    :class "volbar"
-                    :value volume_percent
+                    :class "volume_bar"
+                    :value {audio_metadata.master}
                     :orientation "h"
-                    :tooltip "${volume_percent}%"
+                    :tooltip "${audio_metadata.master}%"
                     :max 100
                     :min 0
-                    :onchange "amixer -D pulse sset Master {}%"
+                    :onchange "widgets/audio/set_audio.sh -m {}"
                 )
             )
         )
     )
-)
-
-(defwidget audio []
-	(box
-	    :class "audio-box"
-	    :orientation "v"
-	    :space-evenly "false"
-        (box
-            :halign "v"
-            :space-evenly "false"
-            :hexpand "false"
-            :vexpand "false"
-            (box :class "speaker_icon" :orientation "v")
-            (box :orientation "v" :halign "center" :vexpand "false" :hexpand "false"
-            (label :class "speaker_text" :text "speaker" :valign "center" :halign "left" )
-            (box :class "speaker_bar" :halign "center" :vexpand "false" :hexpand "false"
-            (scale    :value volume_percent
-                      :space-evenly "false"
-                      :orientation "h"
-                      :onchange "amixer -D pulse sset Master {}%"
-                      :tooltip "volume on ${volume_percent}%"
-                      :max 100
-                      :min 0))))
-                    (label :text "" :class "audio_sep" :halign "center")
-            (box :halign "v" :space-evenly "false" :hexpand "false" :vexpand "false"
-            (box :class "mic_icon" :orientation "v")
-            (box :orientation "v" :halign "center" :vexpand "false" :hexpand "false"
-            (label :class "mic_text" :text "mic" :valign "center" :halign "left" )
-            (box :class "mic_bar" :halign "center" :vexpand "false" :hexpand "false"
-            (scale    :value mic_percent
-                      :space-evenly "false"
-                      :orientation "h"
-                      :tooltip "mic on ${mic_percent}%"
-                      :onchange "amixer -D pulse sset Capture {}%"
-                      :max 100
-                      :min 0))))))
-
-(defwindow audio_ctl
-    :monitor 1
-    :geometry (geometry :x "-20px" :y "7%" :anchor "top right" :width "280px" :height "60px")
-    (audio)
 )

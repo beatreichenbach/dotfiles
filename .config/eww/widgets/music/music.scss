@@ -4,8 +4,8 @@
     padding: 0 1rem;
 
     &:hover {
-	    background-color: $dim_background;
-	    color: $bright_foreground;
+	    background-color: $dim_bg;
+	    color: $bright_fg;
 	}
 }
 
@@ -14,18 +14,18 @@
 	min-width: 2rem;
 
     &:hover {
-	    background-color: $dim_background;
-	    color: $bright_foreground;
+	    background-color: $bg;
+	    color: $secondary;
 	}
 }
 
 /* --- frame --- */
 
 .music_frame {
-    background-color: $background;
-    color: $foreground;
+    background-color: $dim_bg;
+    color: $fg;
     padding: 0.75rem;
-    border: 1px solid $red;
+    border: 1px solid $primary;
     //border-radius: 0.5rem;
 
     .music_play {
@@ -45,7 +45,7 @@
 }
 
 .music_title {
-    color: $bright_foreground;
+    color: $bright_fg;
     font-size: 1.2rem;
     font-weight: bold;
 }
@@ -55,7 +55,7 @@
 
 .music_bar {
     trough {
-        background-color: $dim_background;
+        background-color: $bg;
         min-height: 1.5rem;
         min-width: 4rem;
 

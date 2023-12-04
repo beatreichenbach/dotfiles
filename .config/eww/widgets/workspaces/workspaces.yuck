@@ -14,7 +14,7 @@
             (button
                 :onclick `"${workspace_switch}" "${w.name}"`
                 :class {w.focused ? "focused" : ""}
-                :visible {w.output != monitor}
+                :visible {w.output == monitor}
                 "${w.name}"
             )
         )

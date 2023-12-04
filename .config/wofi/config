@@ -1,5 +1,6 @@
 # --- general ---
 show=run
+prompt=
 normal_window=false
 layer=top
 term=alacritty

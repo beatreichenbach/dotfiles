@@ -11,6 +11,11 @@ input "1133:49733:Logitech_Gaming_Mouse_G400" {
     pointer_accel -0.9
 }
 
+input "12815:20555:USB_HID_GMMK_2_Full_Size_96%_Keyboard" {
+    xkb_numlock enabled
+    xkb_capslock disabled
+}
+
 # --- Output ---
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs

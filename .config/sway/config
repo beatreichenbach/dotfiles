@@ -37,7 +37,7 @@ set $colorpicker        "hyprpicker -a"
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --config ~/.config/wofi/config --style ~/.config/wofi/style.css
+set $menu tofi-run | xargs swaymsg exec --
 
 # --- Apps  ---
 
@@ -219,4 +219,3 @@ include /etc/sway/config.d/*
 
 exec ~/.config/eww/scripts/start.sh
 exec autotiling
-# exec swaync

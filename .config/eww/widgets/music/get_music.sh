@@ -5,8 +5,11 @@ artist=$(playerctl metadata --format '{{ artist }}')
 title=$(playerctl metadata --format '{{ title }}')
 art=$(playerctl metadata --format '{{ mpris:artUrl }}')
 
-duration=$(playerctl metadata --format '{{ mpris:length }}')
-position=$(playerctl metadata --format '{{ position }}')
+length=$(playerctl metadata --format '{{ mpris:length }}')
+pos=$(playerctl metadata --format '{{ position }}')
+
+duration=$([-z "$length" ] && echo "$length" || echo "0")
+position=$([-z "$pos" ] && echo "$pos" || echo "0")
 
 data="
 {

@@ -2,9 +2,6 @@
 
 (defvar duration "300ms")
 
-(deflisten focused_monitor :initial "" "scripts/get_monitor.sh")
-
-
 ; --- widgets ---
 
 (include "widgets/clock/clock.yuck")
@@ -12,11 +9,12 @@
 (include "widgets/workspaces/workspaces.yuck")
 (include "widgets/audio/audio.yuck")
 (include "widgets/music/music.yuck")
+(include "widgets/power/power.yuck")
 
 ; --- bar ---
 
 (defwindow bar_DP-1
-    :monitor 1
+    :monitor 0
     :geometry (geometry :width "100%" :height "30px" :anchor "top center")
     :stacking "fg"
     :windowtype "dock"
@@ -25,15 +23,13 @@
 )
 
 (defwindow bar_DP-2
-    :monitor 0
+    :monitor 1
     :geometry (geometry :width "100%" :height "30px" :anchor "top center")
     :stacking "fg"
     :windowtype "dock"
     :exclusive true
     (bar :monitor "DP-2")
 )
-
-
 
 (defwidget bar [monitor]
     (centerbox
@@ -44,7 +40,6 @@
             :orientation "h"
             :space-evenly false
             :halign "start"
-            :class ""
 
             (workspaces :monitor monitor)
         )
@@ -53,7 +48,6 @@
             :orientation "h"
             :space-evenly false
             :halign "center"
-            :class ""
 
             (music)
         )
@@ -62,10 +56,11 @@
             :orientation "h"
             :space-evenly false
             :halign "end"
-            :class ""
+            :spacing 16
 
-            ;;(volume)
+            (volume)
             (clock)
+            (power)
         )
 
     )
@@ -73,14 +68,14 @@
 
 ; --- calendar ---
 
-(defwindow calendar_DP-1
-    :monitor 1
+(defwindow pop_calendar_DP-1
+    :monitor 0
 	:geometry (geometry :x "16px" :y "16px" :anchor "top right")
     :focusable "false"
 	(calendar_frame)
 )
-(defwindow calendar_DP-2
-    :monitor 0
+(defwindow pop_calendar_DP-2
+    :monitor 1
 	:geometry (geometry :x "16px" :y "16px" :anchor "top right")
     :focusable "false"
 	(calendar_frame)
@@ -88,15 +83,14 @@
 
 ; --- music ---
 
-
-(defwindow music_DP-1
-    :monitor 1
+(defwindow pop_music_DP-1
+    :monitor 0
     :geometry (geometry :x "0" :y "16px" :anchor "top center")
     :focusable "false"
     (music_frame)
 )
-(defwindow music_DP-2
-    :monitor 0
+(defwindow pop_music_DP-2
+    :monitor 1
     :geometry (geometry :x "0" :y "16px" :anchor "top center")
     :focusable "false"
     (music_frame)

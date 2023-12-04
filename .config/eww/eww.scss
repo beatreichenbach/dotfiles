@@ -1,124 +1,30 @@
 
+/* --- themes --- */
+
 @import 'themes/monokai_pro.scss';
+
+/* --- widgets --- */
+
 @import 'widgets/workspaces/workspaces.scss';
 @import 'widgets/clock/clock.scss';
 @import 'widgets/calendar/calendar.scss';
 @import 'widgets/music/music.scss';
-
-*{
-	all: unset;
-    font-family: JetBrains Mono;
-}
+@import 'widgets/audio/audio.scss';
+@import 'widgets/power/power.scss';
 
 /* --- general --- */
 
+*{
+	all: unset;
+    font-family: "JetBrains Mono", monospace, sans-serif;
+}
 
 .bar {
-//     background-color: $dim_background;
-    color: $foreground;
+    background-color: $bg;
+    color: $fg;
     margin: 1rem;
 }
 
-.bar box {
-    background-color: $background;
+.bar > box {
     padding: 0 1rem;
-//     border-radius: 0.5rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-.bar {
-    background-color: rgba(0, 0, 0);
-    border-radius: 2px;
-    margin: 12px;
-}
-.module {
-    margin: 0px 0px 0px 0px;
-    border-radius: 10px 16px 0px 10px;
-}
-
-tooltip.background {
-    background-color: #0f0f17;
-    font-size: 18;
-    border-radius: 10px;
-    color: #bfc9db;
-}
-
-tooltip label {
-    margin: 6px;
-}
-
-
-
-.membar {
-  color: #e0b089;
-    background-color: #38384d;
-  border-radius: 10px;
-}
-.batbar {
-  color: #afbea2;
-    background-color: #38384d;
-  border-radius: 10px;
-}
-.brightbar trough highlight {
-  background-image: linear-gradient(to right, #e4c9af 30%, #f2cdcd 50%, #e0b089 100% *50);
-  border-radius: 10px;
-}
-.volbar trough highlight {
-  background-image: linear-gradient(to right, #afcee0 30%, #a1bdce 50%, #77a5bf 100% *50);
-  border-radius: 10px;
-}
-.volume_icon {
-    font-size: 22;
-    color: #a1bdce;
-  margin: 0px 10px 0px 10px;
-}
-
-
-
-.bright_icon {
-    font-size: 22;
-    color: #e4c9af;
-  margin: 0px 10px 0px 10px;
-}
-
-
-.separ {
-    color: #3e424f;
-    font-weight: bold;
-    font-size: 22px;
-    margin: 0px 8px 0px 8px;
-  }
-
-scale trough {
-  all: unset;
-  background-color: #22242b;
-  box-shadow: 0 2px 3px 2px #06060b;
-  border-radius: 16px;
-  min-height: 10px;
-  min-width: 70px;
-  margin: 0px 10px 0px 0px;
-}
-
-
-.0 , .01, .02, .03, .04, .05, .06,
-.011, .022, .033, .044, .055, .066{
-  margin: 0px 10px 0px 0px;
-}
-*/

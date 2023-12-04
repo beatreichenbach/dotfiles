@@ -1,14 +1,13 @@
 #!/bin/bash
 
-if [[ ! `pidof eww` ]]; then
-	eww daemon
-	sleep 1
-fi
+# kill the daemon to force a restart
+eww kill &> /dev/null
 
-eww kill
+# start the daemon if it's not running
+eww state &> /dev/null || eww daemon
 
+# open up the bar for every monitor
 monitors=$(swaymsg -t get_outputs | jq -r '.[].name')
-
 for monitor in ${monitors}; do
     eww open bar_${monitor}
 done
