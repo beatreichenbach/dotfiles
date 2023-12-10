@@ -17,7 +17,7 @@ titlebar_padding                6 6
 title_align                     center
 
 gaps inner                      12
-gaps outer                      12
+gaps outer                      6
 
 # --- Sway FX ---
 

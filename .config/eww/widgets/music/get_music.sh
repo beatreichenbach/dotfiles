@@ -5,11 +5,13 @@ artist=$(playerctl metadata --format '{{ artist }}')
 title=$(playerctl metadata --format '{{ title }}')
 art=$(playerctl metadata --format '{{ mpris:artUrl }}')
 
+# mpris:length is in microseconds
 length=$(playerctl metadata --format '{{ mpris:length }}')
-pos=$(playerctl metadata --format '{{ position }}')
+# position is in seconds but format is in microseconds
+position=$(playerctl position --format '{{ position }}')
 
-duration=$([-z "$length" ] && echo "$length" || echo "0")
-position=$([-z "$pos" ] && echo "$pos" || echo "0")
+duration=$( [[ -n "$length" ]] && echo $(( $length / 1000000 )) || echo 0 )
+percentage=$( [[ -n "$position" ]] && echo $(( $position * 100 / $length )) || echo 0 )
 
 data="
 {
@@ -18,7 +20,7 @@ data="
   \"title\": \"$title\",
   \"art\": \"$art\",
   \"duration\": \"$duration\",
-  \"position\": \"$position\"
+  \"position\": \"$percentage\"
 }
 "
 

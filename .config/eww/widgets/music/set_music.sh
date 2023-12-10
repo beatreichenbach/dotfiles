@@ -10,4 +10,7 @@ elif [[ "$1" == "next" ]]; then
 	playerctl next
 elif [[ "$1" == "previous" ]]; then
 	playerctl previous
+elif [[ "$1" == "position" ]]; then
+  length=$(playerctl metadata --format '{{ mpris:length }}')
+	playerctl position $(( $2 * ($length / 1000000) / 100 ))
 fi

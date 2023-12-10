@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# initialize xdg, see xdg-ninja
+# initialize xdg, see:
+# https://github.com/b3nj5m1n/xdg-ninja
 
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"

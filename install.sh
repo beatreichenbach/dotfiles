@@ -1,21 +1,25 @@
 #!/bin/bash
 
+# packages
+while IFS= read -r line; do
+  if [[ $line != "#"* ]]; then
+    paru -S "$line"
+  fi
+done < packages.txt
+
+# system
+cp -rf system/* /
+
+# sway
+cp -f ".config/sway/startsway" "/usr/local/bin/"
+
+# sudo
+echo -e "${USER}\tALL=(ALL:ALL) ALL" > "/etc/sudoers.d/$USER"
+
 # GTK Theme: Qogir
 git clone https://github.com/vinceliuice/Qogir-theme
 ./install.sh --theme default --color standard --icon arch
 rm -rf "Qogir-theme"
-
-# packages
-packages=(
-  "ttf-jetbrains-mono-nerd"
-  "alacritty"
-  "starship"
-  "zsh"
-  "zsh-antidote"
-  "tofi"
-  "eww"
-)
-pacman -S "${packages[@]}"
 
 # configuration
 stow -t ~ .
