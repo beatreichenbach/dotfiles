@@ -113,9 +113,10 @@
                     (scale
                         :class "music_bar"
                         :hexpand true
+                        :onchange "widgets/music/set_music.sh position {}"
+                        :active true
 
                         :min 0
-                        :active true
                         :max 100
                         :value "${music_metadata.position}"
                     )
