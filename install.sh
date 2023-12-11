@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# paru
+pushd ..
+pacman -S --needed base-devel
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+popd
+
 # packages
 while IFS= read -r line; do
   if [[ $line != "#"* ]]; then

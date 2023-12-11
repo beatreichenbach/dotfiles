@@ -1,4 +1,6 @@
 ^\.idea
 ^\.git
 ^system
-^.*\.md
+^README\.md
+^install\.sh
+^packages\.txt
