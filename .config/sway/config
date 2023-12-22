@@ -53,6 +53,7 @@ bindsym $mod+Shift+i 			exec $ide
 # --- Key Bindings ---
 
 bindsym $mod+q          kill
+bindsym $mod+F2         exec $menu
 bindsym $alt+F2         exec $menu
 bindsym $mod+Shift+c    reload
 # bindsym $alt+Control+l 	exec "$lockscreen"

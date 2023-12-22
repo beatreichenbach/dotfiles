@@ -29,7 +29,7 @@ makepkg -si
 
 ## Configuration
 
-### Google Chrome
+### google-chrome-stable
 
 Set following flags in [chrome](chrome://flags):
 ```
@@ -115,6 +115,11 @@ https://wiki.archlinux.org/title/XDG_Base_Directory
 ### xdg-desktop-portal
 
 https://man.archlinux.org/man/xdg-desktop-portal-wlr.5
+
+### JetBrains Products
+
+PyCharm settings are stored with
+[Settings Sync](https://www.jetbrains.com/help/pycharm/sharing-your-ide-settings.html#IDE_settings_sync)
 
 ## Additional Information
 
