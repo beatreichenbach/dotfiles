@@ -8,9 +8,9 @@
 
 # text theming
 
-	text-color = #727072
+	text-color = #7F848E
 
-	prompt-color = #FCFCFA
+	prompt-color = #E6E6E6
 	prompt-background = #00000000
 	prompt-background-padding = 0
 	prompt-background-corner-radius = 0
@@ -20,13 +20,13 @@
 	# placeholder-background-padding = 0
 	# placeholder-background-corner-radius = 0
 
-	input-color = #FCFCFA
+	input-color = #E6E6E6
 	input-background = #00000000
 	input-background-padding = 0
 	input-background-corner-radius = 0
 
 	# default-result-color = #FFFFFF
-	# default-result-background = #2D2A2E
+	# default-result-background = #21252B
 	# default-result-background-padding = 0
 	# default-result-background-corner-radius = 0
 
@@ -35,7 +35,7 @@
 	# alternate-result-background-padding = 0
 	# alternate-result-background-corner-radius = 0
 
-	selection-color = #78DCE8
+	selection-color = #98C379
 	selection-background = #00000000
 	selection-background-padding = 0
 	selection-background-corner-radius = 0
@@ -64,13 +64,13 @@
 
 	width = 720
 	height = 480
-	background-color = #221F22
+	background-color = #21252B
 
 	outline-width = 0
 	outline-color = #00000000
 
 	border-width = 1
-	border-color = #91DCAF
+	border-color = #56B6C2
 
 	corner-radius = 0
 
