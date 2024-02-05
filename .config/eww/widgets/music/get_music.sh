@@ -11,7 +11,7 @@ length=$(playerctl metadata --format '{{ mpris:length }}')
 position=$(playerctl position --format '{{ position }}')
 
 duration=$( [[ -n "$length" ]] && echo $(( $length / 1000000 )) || echo 0 )
-percentage=$( [[ -n "$position" ]] && echo $(( $position * 100 / $length )) || echo 0 )
+percentage=$( [[ -n "$position" && -n "$length" ]] && echo $(( $position * 100 / $length )) || echo 0 )
 
 data="
 {
