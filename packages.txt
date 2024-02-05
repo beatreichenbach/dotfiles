@@ -62,6 +62,7 @@ python
 
 pycharm-community-jre
 sublime-merge
+obsidian
 
 # --- apps: other ---
 

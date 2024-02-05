@@ -1,6 +1,6 @@
 # --- antidote ---
 
-source '/usr/share/zsh-antidote/antidote.zsh'
+source "/usr/share/zsh-antidote/antidote.zsh"
 antidote load
 
 # zsh_autosuggestions
@@ -17,17 +17,18 @@ fi
 
 # --- keyboard ---
 
-bindkey  "^[[H"   beginning-of-line # home
-bindkey  "^[[F"   end-of-line # end
-bindkey  "^[[3~"  delete-char # del
+bindkey "^[[H" beginning-of-line # home
+bindkey "^[[F" end-of-line # end
+bindkey "^[[3~" delete-char # del
 bindkey "^[[1;5C" forward-word # ctrl + right
 bindkey "^[[1;5D" backward-word # ctrl + left
+bindkey "^V" paste # ctrl + v
 
 # --- alias ---
 
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias ll='ls -lahv --group-directories-first --time-style=long-iso'
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
+alias ll="ls -lahv --group-directories-first --time-style=long-iso"
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME/nvidia/settings"'
 
 # --- exec ---
