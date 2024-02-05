@@ -1,6 +1,6 @@
 .workspaces {
     //padding: 0.25rem;
-    background-color: $bg;
+    background-color: $dim_bg;
     color: $base7;
 }
 .workspaces button {
@@ -14,7 +14,7 @@
     }
 
     &:hover {
-        background-color: $dim_bg;
+        background-color: $bg;
         color: $bright_fg;
     }
 }
