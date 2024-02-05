@@ -1,4 +1,4 @@
-import = ["/home/beat/.config/alacritty/themes/monokai_pro.toml"]
+import = ["/home/beat/.config/alacritty/themes/atom_one.toml"]
 live_config_reload = true
 
 [colors]
