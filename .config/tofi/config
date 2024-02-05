@@ -35,7 +35,7 @@
 	# alternate-result-background-padding = 0
 	# alternate-result-background-corner-radius = 0
 
-	selection-color = #91DCAF
+	selection-color = #78DCE8
 	selection-background = #00000000
 	selection-background-padding = 0
 	selection-background-corner-radius = 0
@@ -64,13 +64,13 @@
 
 	width = 720
 	height = 480
-	background-color = #1B1D1E
+	background-color = #221F22
 
 	outline-width = 0
 	outline-color = #00000000
 
 	border-width = 1
-	border-color = #78DCE8
+	border-color = #91DCAF
 
 	corner-radius = 0
 

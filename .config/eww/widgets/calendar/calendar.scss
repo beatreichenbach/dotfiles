@@ -2,7 +2,7 @@
   background-color: $dim_bg;
   color: $fg;
   padding: 0.75rem;
-  border: 1px solid $primary;
+  border: 1px solid $secondary;
   //border-radius: 0.5rem;
 }
 
@@ -10,7 +10,7 @@ calendar {
   padding: 0.75rem;
 
   :selected {
-    background-color: $primary;
+    background-color: $bright_bg;
     color: $bright_fg;
   }
 
@@ -19,12 +19,12 @@ calendar {
   }
 
   .highlight {
-    color: $secondary;
+    color: $primary;
   }
 
   .button {
     background-color: $bg;
-    color: $secondary;
+    color: $primary;
 
     &:hover {
       background-color: $bright_bg;
