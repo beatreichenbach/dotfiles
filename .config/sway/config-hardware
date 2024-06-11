@@ -20,8 +20,18 @@ input "12815:20555:USB_HID_GMMK_2_Full_Size_96%_Keyboard" {
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-output DP-1 resolution 2560x1440 position 2560,0
-output DP-2 resolution 2560x1440 position 0,0 
+output DP-1 {
+    resolution 2560x1440
+    position 2560,0
+    subpixel bgr
+    scale 1.0
+}
+output DP-2 {
+    resolution 2560x1440
+    position 0,0
+    subpixel bgr
+    scale 1.0
+}
 
 focus output DP-2
 

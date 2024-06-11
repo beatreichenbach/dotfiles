@@ -24,7 +24,7 @@ set $up k
 set $right l
 
 set $term alacritty
-set $files dolphin
+set $files nemo
 set $editor alacritty nvim
 set $browser firefox
 set $ide pycharm
@@ -50,7 +50,7 @@ bindsym $mod+Shift+e 			exec $editor
 bindsym $mod+Shift+w 			exec $browser
 bindsym $mod+Shift+i 			exec $ide
 
-# --- Key Bindings ---
+#--- Key Bindings ---
 
 bindsym $mod+q          kill
 bindsym $mod+F2         exec $menu
