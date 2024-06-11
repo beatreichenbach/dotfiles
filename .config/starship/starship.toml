@@ -2,7 +2,7 @@ format = "$directory$character"
 add_newline = false
 right_format = "$all"
 
-palette = "atom_one"
+palette = "one_dark_two"
 
 
 [aws]
@@ -155,3 +155,25 @@ base7       = "#7F848E"
 base8       = "#9DA5B4"
 base9       = "#ABB2BF"
 base10      = "#E6E6E6"
+
+
+[palettes.one_dark_two]
+magenta   = "#C88BDA"
+red       = "#E27881"
+orange    = "#E79C7E"
+yellow    = "#EAC786"
+green     = "#98C379"
+cyan      = "#62BAC6"
+blue      = "#71B9F4"
+text      = "#E6E6E6"
+subtext1  = "#C9CCD3"
+subtext0  = "#ABB2BF"
+overlay2  = "#969DAB"
+overlay1  = "#818896"
+overlay0  = "#6C7280"
+surface2  = "#5B626D"
+surface1  = "#4A505A"
+surface0  = "#393E47"
+base      = "#282C34"
+mantle    = "#21252B"
+crust     = "#1D1F23"

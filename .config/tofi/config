@@ -8,7 +8,7 @@
 
 # text theming
 
-	text-color = #7F848E
+	text-color = #62BAC6
 
 	prompt-color = #E6E6E6
 	prompt-background = #00000000
@@ -35,7 +35,7 @@
 	# alternate-result-background-padding = 0
 	# alternate-result-background-corner-radius = 0
 
-	selection-color = #98C379
+	selection-color = #EAC786
 	selection-background = #00000000
 	selection-background-padding = 0
 	selection-background-corner-radius = 0
