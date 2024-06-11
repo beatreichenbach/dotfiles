@@ -1,4 +1,4 @@
-import = ["/home/beat/.config/alacritty/themes/atom_one.toml"]
+import = ["/home/beat/.config/alacritty/themes/one_dark_two.toml"]
 live_config_reload = true
 
 [colors]

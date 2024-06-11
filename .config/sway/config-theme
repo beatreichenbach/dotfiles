@@ -45,14 +45,14 @@ gaps outer                      6
 # --- Colors ---
 
 set $color_background   #21252B
-set $color_primary      #98C379
-set $color_secondary    #56B6C2
+set $color_primary      #62BAC6
+set $color_secondary    #EAC786
 
 set $clear              #00000000
 
 #                           (title bar)                                                 (view)
 # class                     border              background          text                indicator           child_border
-client.focused              $color_secondary    $color_secondary    $color_background   $color_secondary    $color_secondary
+client.focused              $color_primary      $color_primary       $color_background  $color_primary      $color_primary
 client.focused_inactive     $clear              $clear              $clear              $clear              $clear
 client.unfocused            $clear              $clear              $clear              $clear              $clear
 
