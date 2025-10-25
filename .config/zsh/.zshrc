@@ -22,7 +22,7 @@ bindkey "^[[F" end-of-line # end
 bindkey "^[[3~" delete-char # del
 bindkey "^[[1;5C" forward-word # ctrl + right
 bindkey "^[[1;5D" backward-word # ctrl + left
-bindkey "^V" paste # ctrl + v
+bindkey "\e[2;6~" paste # ctrl + shift + v
 
 # --- alias ---
 
@@ -32,5 +32,7 @@ alias ll="ls -lahv --group-directories-first --time-style=long-iso"
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME/nvidia/settings"'
 
 # --- exec ---
+
+source /usr/share/nvm/init-nvm.sh
 
 eval "$(starship init zsh)"

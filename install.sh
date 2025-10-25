@@ -18,9 +18,6 @@ done < packages.txt
 # system
 cp -rf system/* /
 
-# sway
-cp -f ".config/sway/startsway" "/usr/local/bin/"
-
 # sudo
 echo -e "${USER}\tALL=(ALL:ALL) ALL" > "/etc/sudoers.d/$USER"
 
