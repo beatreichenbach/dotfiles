@@ -1,0 +1,135 @@
+format = "$directory$character"
+add_newline = false
+right_format = "$all"
+
+palette = "monokai_pro"
+
+
+[aws]
+symbol = "  "
+
+[bun]
+symbol = " "
+format = '[$symbol($version )]($style)'
+
+[conda]
+symbol = " "
+format = '[$symbol($environment )]($style) '
+
+[directory]
+read_only = " 󰌾"
+truncation_length = 3
+
+[docker_context]
+symbol = " "
+format = '[$symbol ]($style)'
+
+[elixir]
+symbol = " "
+format = '[$symbol($version )]($style)'
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+format = '[$symbol($version )]($style)'
+
+[hostname]
+ssh_symbol = " "
+format = '[($hostname )$ssh_symbol]($style)'
+style = 'bold dimmed blue'
+
+[memory_usage]
+symbol = "󰍛 "
+
+[meson]
+symbol = "󰔷 "
+format = '[$symbol($version )]($style)'
+
+[nodejs]
+symbol = " "
+format = '[$symbol($version )]($style)'
+
+[package]
+symbol = "󰏗 "
+format = '[$symbol($version )]($style)'
+
+[python]
+symbol = " "
+format = '[$symbol($version )(\($virtualenv\) )]($style)'
+
+[rust]
+symbol = " "
+format = '[$symbol($version )]($style)'
+
+[username]
+format = '[$user]($style)@'
+style_root = 'bold dimmed red'
+style_user = 'bold dimmed yellow'
+
+[palettes.catppuccin_mocha]
+rosewater   = "#f5e0dc"
+flamingo    = "#f2cdcd"
+pink        = "#f5c2e7"
+mauve       = "#cba6f7"
+red         = "#f38ba8"
+maroon      = "#eba0ac"
+peach       = "#fab387"
+yellow      = "#f9e2af"
+green       = "#a6e3a1"
+teal        = "#94e2d5"
+sky         = "#89dceb"
+sapphire    = "#74c7ec"
+blue        = "#89b4fa"
+lavender    = "#b4befe"
+
+text        = "#cdd6f4"
+subtext1    = "#bac2de"
+subtext0    = "#a6adc8"
+overlay2    = "#9399b2"
+overlay1    = "#7f849c"
+overlay0    = "#6c7086"
+surface2    = "#585b70"
+surface1    = "#45475a"
+surface0    = "#313244"
+base        = "#1e1e2e"
+mantle      = "#181825"
+crust       = "#11111b"
+
+[palettes.nord]
+green_cyan  = "#8fbcbb"
+cyan        = "#88c0d0"
+cyan_blue   = "#81a1c1"
+blue        = "#5e81ac"
+red         = "#bf616a"
+orange      = "#d08770"
+yellow      = "#ebcb8b"
+green       = "#a3be8c"
+purple      = "#b48ead"
+
+nord0       = "#2e3440"
+nord1       = "#3b4252"
+nord2       = "#434c5e"
+nord3       = "#4c566a"
+nord4       = "#d8dee9"
+nord5       = "#e5e9f0"
+nord6       = "#eceff4"
+
+[palettes.monokai_pro]
+red         = "#ff6188"
+orange      = "#fc9867"
+yellow      = "#ffd866"
+green       = "#a9dc76"
+blue        = "#78dce8"
+purple      = "#ab9df2"
+
+base0       = "#19181a"
+base1       = "#221f22"
+base2       = "#2d2a2e"
+base3       = "#403e41"
+base4       = "#5b595c"
+base5       = "#727072"
+base6       = "#939293"
+base7       = "#c1c0c0"
+base8       = "#fcfcfa"

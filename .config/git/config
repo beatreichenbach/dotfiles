@@ -1,0 +1,7 @@
+[user]
+	name = Beat Reichenbach
+	email = info@artofbeat.com
+[core]
+	excludesfile = /home/beat/.config/git/.gitignore
+[init]
+	defaultBranch = main

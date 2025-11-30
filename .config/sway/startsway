@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# --- xdg ---
+
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=sway
+export XDG_CURRENT_DESKTOP=sway
+export XDG_CURRENT_SESSION=sway
+
+# --- gpu ---
+
+# Hardware cursors not yet working on wlroots
+export WLR_NO_HARDWARE_CURSORS=1
+
+if [[ `lspci -k | grep -P 'VGA|3D|Display' | grep -w NVIDIA` ]]; then
+  # OpenGL Variables
+  export GBM_BACKEND=nvidia-drm
+  export __GL_GSYNC_ALLOWED=0
+  export __GL_VRR_ALLOWED=0
+  export __GLX_VENDOR_LIBRARY_NAME=nvidia
+
+  export LIBVA_DRIVER_NAME=nvidia
+
+  # Set wlroots renderer to Vulkan to avoid flickering
+  export WLR_RENDERER=vulkan
+  # Xwayland compatibility
+  export XWAYLAND_NO_GLAMOR=1
+fi
+
+# --- gtk ---
+
+export CLUTTER_BACKEND=wayland
+export GDK_BACKEND=wayland,x11
+
+# --- qt ---
+
+export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_QPA_PLATFORM=wayland
+#export QT_WAYLAND_FORCE_DPI=physical #uncomment this to use monitor's DPI
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+
+# --- apps ---
+
+# Firefox
+export MOZ_ENABLE_WAYLAND=1
+
+# Java environment
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# https://unix.stackexchange.com/questions/230238/x-applications-warn-couldnt-connect-to-accessibility-bus-on-stderr
+# disable accessibility errors
+export NO_AT_BRIDGE=1
+
+# --- sway ---
+
+sway --unsupported-gpu > ~/sway.log

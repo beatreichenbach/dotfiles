@@ -1,0 +1,37 @@
+.calendar_frame {
+  background-color: $dim_bg;
+  color: $fg;
+  padding: 0.75rem;
+  border: 1px solid $primary;
+  //border-radius: 0.5rem;
+}
+
+calendar {
+  padding: 0.75rem;
+
+  :selected {
+    background-color: $primary;
+    color: $bright_fg;
+  }
+
+  .header {
+    background-color: $bg;
+  }
+
+  .highlight {
+    color: $secondary;
+  }
+
+  .button {
+    background-color: $bg;
+    color: $secondary;
+
+    &:hover {
+      background-color: $bright_bg;
+    }
+  }
+
+  :indeterminate {
+    color: $bright_bg;
+  }
+}

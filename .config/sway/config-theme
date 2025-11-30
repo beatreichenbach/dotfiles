@@ -1,0 +1,85 @@
+# --- Background ---
+
+exec wpaperd
+
+# --- Appearance ---
+
+set $opacity 0.9
+# for_window [class=".*"] opacity $opacity
+# for_window [app_id=".*"] opacity $opacity
+
+default_border                  pixel 1
+default_floating_border         pixel 1
+smart_borders                   off
+
+titlebar_border_thickness       1
+titlebar_padding                6 6
+title_align                     center
+
+gaps inner                      12
+gaps outer                      12
+
+# --- Sway FX ---
+
+# corner_radius                   4
+
+# blur                            enable
+# blur_xray                       disable
+# blur_passes                     2
+# blur_radius                     5
+
+# layer_effects "panel" "blur enable"
+
+# shadows                         disable
+# shadows_on_csd                  disable
+# shadow_blur_radius              20
+# shadow_color                    #0000007F
+#
+# default_dim_inactive            0.25
+# dim_inactive_colors.unfocused   #000000FF
+# dim_inactive_colors.urgent      #900000FF
+
+# titlebar_separator              enable
+# scratchpad_minimize             disable
+
+# --- Colors ---
+
+set $sway_cl_col_bg     #1E2128
+set $sway_cl_col_fg     #ABB2BF
+set $sway_cl_col_in     #98C379
+set $sway_cl_col_afoc   #E06B74
+set $sway_cl_col_ifoc   #62AEEF
+set $sway_cl_col_ufoc   #292d37
+set $sway_cl_col_urgt   #C778DD
+set $sway_cl_col_phol   #1E2128
+
+set $clear              #00000000
+
+#                           (title bar)                                                 (view)
+# class                     border              background          text                indicator           child_border
+client.focused              $sway_cl_col_afoc   $sway_cl_col_afoc   $sway_cl_col_bg     $sway_cl_col_afoc   $sway_cl_col_afoc
+client.focused_inactive     $clear              $clear              $clear              $clear              $clear
+client.unfocused            $clear              $clear              $clear              $clear              $clear
+
+# --- Font ---
+
+font pango:JetBrains Mono Medium 10
+
+# --- GTK ---
+
+set $gnome org.gnome.desktop.interface
+set $nemo org.nemo.preferences
+exec_always {
+    gsettings set $gnome gtk-theme 'Qogir'
+    gsettings set $gnome icon-theme 'Qogir'
+    gsettings set $gnome font-name 'JetBrains Mono'
+    gsettings set $gnome monospace-font-name 'JetBrains Mono'
+    gsettings set $gnome gtk-enable-primary-paste false
+
+    gsettings set $nemo default-folder-viewer 'list-view'
+    gsettings set $nemo inherit-folder-viewer true
+    gsettings set $nemo show-full-path-titles true
+    gsettings set $nemo show-hidden-files true
+    gsettings set $nemo show-location-entry true
+}
+

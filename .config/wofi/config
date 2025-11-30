@@ -1,0 +1,43 @@
+# --- general ---
+show=run
+prompt=
+normal_window=false
+layer=top
+term=alacritty
+
+# --- geometry ---
+width=480px
+height=320px
+location=center
+lines=12
+columns=1
+orientation=vertical
+halign=fill
+valign=start
+content_halign=fill
+line_wrap=off
+dynamic_lines=false
+
+# --- images ---
+allow_markup=true
+allow_images=true
+image_size=24
+
+# --- search ---
+# search=
+exec_search=false
+hide_search=false
+parse_search=false
+matching=contains
+insensitive=true
+
+# --- other ---
+hide_scroll=true
+no_actions=true
+sort_order=default
+gtk_dark=true
+filter_rate=100
+
+# --- keys ---
+key_expand=Tab
+key_exit=Escape

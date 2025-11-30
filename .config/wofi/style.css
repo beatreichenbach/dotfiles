@@ -1,0 +1,67 @@
+@import url(".config/wofi/themes/monokai_pro.css");
+
+* {
+    font-family: "JetBrains Mono", monospace, sans-serif;
+}
+
+#window {
+	background-color: @dim_bg;
+	color: @fg;
+
+	border: 1px solid @cyan;
+}
+
+#outer-box {
+	padding: 1.5rem;
+}
+
+#input {
+	background-color: @bg;
+    border: 1px solid @bg;
+	padding: 0.25rem 1rem;
+	border-radius: 0;
+	border: none;
+}
+
+#scroll {
+	margin-top: 2rem;
+    background: $blue;
+    border: 0;
+}
+
+#inner-box {
+}
+
+#img {
+	padding-right: 0.5rem;
+}
+
+#text {
+	color: @dim_fg;
+}
+
+#text:selected {
+	color: @bg;
+}
+
+#text:hover {
+    color: @fg;
+}
+
+#entry {
+	padding: 0.5rem;
+}
+
+#entry:selected {
+    background-image: linear-gradient(to right, @yellow 0%, @orange 40%, @red 100%);
+}
+
+#entry:hover {
+    background-image: linear-gradient(to right, @green 0%, @cyan 40%, @blue 100%);
+}
+
+#unselected {
+}
+
+#selected {
+}

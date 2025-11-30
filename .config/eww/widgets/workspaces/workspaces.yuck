@@ -1,0 +1,22 @@
+(deflisten workspace_list :initial "[]" "widgets/workspaces/get_workspaces.sh")
+
+(defvar workspace_switch "widgets/workspaces/switch_workspace.sh")
+
+(defwidget workspaces [monitor]
+    (box
+        :class "workspaces"
+        :orientation "h"
+        :space-evenly true
+        :halign "start"
+        :valign "center"
+
+        (for w in workspace_list
+            (button
+                :onclick `"${workspace_switch}" "${w.name}"`
+                :class {w.focused ? "focused" : ""}
+                :visible {w.output == monitor}
+                "${w.name}"
+            )
+        )
+    )
+)

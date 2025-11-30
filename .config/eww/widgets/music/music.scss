@@ -1,0 +1,66 @@
+.music {
+}
+.music_label {
+    padding: 0 1rem;
+
+    &:hover {
+	    background-color: $dim_bg;
+	    color: $bright_fg;
+	}
+}
+
+.music_prev, .music_next, .music_play {
+	min-height: 2rem;
+	min-width: 2rem;
+
+    &:hover {
+	    background-color: $bg;
+	    color: $secondary;
+	}
+}
+
+/* --- frame --- */
+
+.music_frame {
+    background-color: $dim_bg;
+    color: $fg;
+    padding: 0.75rem;
+    border: 1px solid $primary;
+    //border-radius: 0.5rem;
+
+    .music_play {
+        min-width: 6rem;
+        font-size: 3rem;
+        &:hover {
+            background-color: initial;
+        }
+    }
+
+}
+
+.music_art {
+    min-width: 6rem;
+    background-position: center;
+    background-size: cover;
+}
+
+.music_title {
+    color: $bright_fg;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.music_artist {
+}
+
+.music_bar {
+    trough {
+        background-color: $bg;
+        min-height: 1.5rem;
+        min-width: 4rem;
+
+        highlight {
+            background-image: linear-gradient(to right, $blue 0%, $cyan 50%, $green 100%);
+        }
+    }
+}

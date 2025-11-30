@@ -1,0 +1,13 @@
+.power button {
+	min-height: 2rem;
+	min-width: 2rem;
+
+    &:hover {
+	    background-color: $dim_bg;
+	    color: $secondary;
+	}
+}
+button.confirm:hover {
+    background-color: $primary;
+    color: $bright_fg;
+}

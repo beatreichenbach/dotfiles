@@ -1,0 +1,24 @@
+.volume {
+}
+
+.volume_icon {
+	min-height: 2rem;
+	min-width: 2rem;
+
+//     &:hover {
+// 	    background-color: $dim_bg;
+// 	    color: $bright_fg;
+// 	}
+}
+
+.volume_bar {
+    trough {
+        background-color: $dim_bg;
+        min-width: 8rem;
+        min-height: 1rem;
+
+        highlight {
+            background-image: linear-gradient(to right, $yellow 0%, $orange 100%);
+        }
+    }
+}

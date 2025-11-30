@@ -1,0 +1,11 @@
+.clock {
+    font-weight: bold;
+}
+.clock_time {
+    min-height: 2rem;
+}
+.clock_date {
+    min-height: 2rem;
+    background-color: $dim_bg;
+    color: $bright_fg;
+}
