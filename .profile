@@ -28,8 +28,10 @@ export NUKE_TEMP_DIR="/tmp/nuke"
 export FN_CRASH_DUMP_PATH="/tmp/nuke"
 export NUKE_CRASH_HANDLING=0
 
-export TERMINAL="alacritty"
+export SHELL="zsh"
+export TERMINAL="ghostty"
 export TERM="xterm-256color"
+export EDITOR="vim"
 
 [ -f "$HOME/.secret" ] && source "$HOME/.secret"
 
