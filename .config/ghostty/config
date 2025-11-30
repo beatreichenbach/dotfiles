@@ -1,3 +1,5 @@
+# https://ghostty.org/docs/config/reference
+
 command = zsh
 
 # theme = One Dark Two
@@ -11,6 +13,8 @@ window-padding-y = 16
 clipboard-read = allow
 clipboard-write = allow
 copy-on-select = false
+
+background-opacity = 0.9
 
 background = #21252b
 foreground = #e6e6e6

@@ -25,12 +25,12 @@
   ],
 
   "keyboard-state": {
-    "numlock": true,
     "capslock": true,
+    "numlock": true,
     "format": "{name} {icon}",
     "format-icons": {
-        "locked": "",
-        "unlocked": ""
+        "locked": "\uf023",
+        "unlocked": "\uf2fc"
     }
   },
   "network": {

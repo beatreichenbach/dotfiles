@@ -34,8 +34,8 @@ cd .. && rm -rf paru
 
 Set following flags in [chrome](chrome://flags):
 ```
-WebRTC PipeWire support		Emabled
-Preferred Ozone platform	Wayland
+WebRTC PipeWire support:  Emabled
+Preferred Ozone platform: Wayland
 ```
 
 ### Fonts
@@ -43,9 +43,7 @@ Preferred Ozone platform	Wayland
 Current font used: [JetBrains Mono](https://www.jetbrains.com/lp/mono)
 
 Fonts are installed here: `/usr/share/fonts`
-
 Font defaults: `~/.config/fontconfig/fonts.conf`
-
 Console defaults: `/etc/vconsole.conf`
 
 ### GTK

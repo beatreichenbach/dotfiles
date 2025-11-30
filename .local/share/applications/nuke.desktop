@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Nuke
+Comment=
+Exec="/usr/bin/nuke" %f
+Terminal=false
+MimeType=application/x-nuke;
+Icon=/opt/nuke/plugins/icons/NukeApp256.png
+Type=Application
+Categories=Graphics;2DGraphics;RasterGraphics;FLTK;
+
