@@ -13,7 +13,6 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GOPATH="$XDG_DATA_HOME/go"
-export HISTFILE="${XDG_STATE_HOME}/bash/history"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
@@ -23,15 +22,26 @@ export ZDOTDIR="$HOME/.config/zsh"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
 export _Z_DATA="$XDG_DATA_HOME/z"
 
-export NUKE_PATH="$XDG_CONFIG_HOME/nuke"
-export NUKE_TEMP_DIR="/tmp/nuke"
-export FN_CRASH_DUMP_PATH="/tmp/nuke"
-export NUKE_CRASH_HANDLING=0
-
-export SHELL="zsh"
-export TERMINAL="ghostty"
+export SHELL="/usr/bin/zsh"
 export TERM="xterm-256color"
 export EDITOR="vim"
 
-[ -f "$HOME/.secret" ] && source "$HOME/.secret"
+# Nuke
+export NUKE_PATH="$XDG_CONFIG_HOME/nuke"
+export NUKE_CRASH_HANDLING=0
+export NUKE_TEMP_DIR="/tmp/nuke"
+export FN_CRASH_DUMP_PATH="/tmp/nuke"
 
+# Houdini Wayland support
+export QT_XCB_NO_XI2=1
+
+# Bun
+if [ -d "$HOME/.bun" ]; then
+    export BUN_INSTALL="$HOME/.bun"
+    export PATH="$BUN_INSTALL/bin:$PATH"
+fi
+
+# OpenCode
+export PATH=$HOME/.opencode/bin:$PATH
+
+[ -f "$HOME/.secret" ] && source "$HOME/.secret"

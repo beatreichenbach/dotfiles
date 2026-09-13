@@ -1,8 +1,4 @@
-agkozak/zsh-z
 zsh-users/zsh-autosuggestions
 zdharma-continuum/fast-syntax-highlighting
 MichaelAquilina/zsh-you-should-use
-
-# zsh-users/zsh-history-substring-search
-# zsh-users/zsh-syntax-highlighting
-# marlonrichert/zsh-autocomplete
+zsh-users/zsh-history-substring-search

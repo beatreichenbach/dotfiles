@@ -1,5 +1,12 @@
 #!/bin/bash
 
+echo "Removing "
+rm .bash_logout .bash_profile .bash_history
+
+
+
+
+
 # paru
 pushd ..
 pacman -S --needed base-devel

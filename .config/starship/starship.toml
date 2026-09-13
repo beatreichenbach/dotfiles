@@ -2,8 +2,6 @@ format = "$directory$character"
 add_newline = false
 right_format = "$all"
 
-palette = "one_dark_two"
-
 
 [aws]
 symbol = "  "
@@ -67,24 +65,3 @@ format = '[$symbol($version )]($style)'
 format = '[$user]($style)@'
 style_root = 'bold dimmed red'
 style_user = 'bold dimmed yellow'
-
-[palettes.one_dark_two]
-magenta   = "#C88BDA"
-red       = "#E27881"
-orange    = "#E79C7E"
-yellow    = "#EAC786"
-green     = "#98C379"
-cyan      = "#62BAC6"
-blue      = "#71B9F4"
-text      = "#E6E6E6"
-subtext1  = "#C9CCD3"
-subtext0  = "#ABB2BF"
-overlay2  = "#969DAB"
-overlay1  = "#818896"
-overlay0  = "#6C7280"
-surface2  = "#5B626D"
-surface1  = "#4A505A"
-surface0  = "#393E47"
-base      = "#282C34"
-mantle    = "#21252B"
-crust     = "#1D1F23"

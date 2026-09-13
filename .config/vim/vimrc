@@ -4,3 +4,6 @@ set undodir=$XDG_CACHE_HOME/vim/undo
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 set runtimepath+=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$XDG_DATA_HOME/vim/bundle/Vundle.vim,$VIM,$VIMRUNTIME
 let $MYVIMRC=$XDG_CONFIG_HOME."/vim/vimrc"
+
+nnoremap :s/ :s/\v
+

@@ -16,17 +16,11 @@ git reset --hard
 stow -t ~ .
 ```
 
-### paru
 
-[github.com/Morganamilo/paru](https://github.com/Morganamilo/paru#installation)
 
-```shell
-pacman -S --needed base-devel
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si
-cd .. && rm -rf paru
-```
+
+
+
 
 ## Configuration
 
@@ -34,8 +28,8 @@ cd .. && rm -rf paru
 
 Set following flags in [chrome](chrome://flags):
 ```
-WebRTC PipeWire support		Emabled
-Preferred Ozone platform	Wayland
+WebRTC PipeWire support:  Emabled
+Preferred Ozone platform: Wayland
 ```
 
 ### Fonts
@@ -43,9 +37,7 @@ Preferred Ozone platform	Wayland
 Current font used: [JetBrains Mono](https://www.jetbrains.com/lp/mono)
 
 Fonts are installed here: `/usr/share/fonts`
-
 Font defaults: `~/.config/fontconfig/fonts.conf`
-
 Console defaults: `/etc/vconsole.conf`
 
 ### GTK
@@ -68,42 +60,6 @@ git clone https://github.com/vinceliuice/Qogir-theme
 ./install.sh --theme default --color standard --icon arch
 ```
 
-### sway
-
-- [autotiling](https://github.com/nwg-piotr/autotiling)
-- 
-
-Notifications (not used):
-- https://github.com/dharmx/vile
-- https://github.com/lucalabs-de/end
-
-### tuigreet
-
-Sessions are [loaded](https://github.com/apognu/tuigreet#sessions) from the following locations:
-```
-/usr/share/xsessions
-/usr/share/wayland-sessions
-```
-
-### Wallpapers
-
-- To cycle through wallpapers: [wpaperd](https://github.com/danyspin97/wpaperd)
-- To display wallpapers: [swaybg](https://github.com/swaywm/swaybg)
-- For nicer wallpapers (not used): [swww](https://github.com/Horus645/swww)
-
-### Workspaces
-
-Workspaces are currently set up like this:
-- `super + 1`: fun
-- `super + 2`: work
-- `super + 3`: work browser
-- `super + 4`: work terminal
-- `super + 5`: slack
-- `super + 6`:
-- `super + 7`:
-- `super + 8`:
-- `super + 9`: utilities
-
 ### xdg
 
 As many files as possible have been moved to the `~/.config` folder with the help of 
@@ -117,43 +73,53 @@ https://wiki.archlinux.org/title/XDG_Base_Directory
 
 https://man.archlinux.org/man/xdg-desktop-portal-wlr.5
 
-### JetBrains Products
 
-PyCharm settings are stored with
-[Settings Sync](https://www.jetbrains.com/help/pycharm/sharing-your-ide-settings.html#IDE_settings_sync)
+### Houdini
 
-## Additional Information
+Houdini requires qt5 to run.
+
+### Steam
+
+Use the following wrapper for most games:
+```gamescope -W 1920 -H 1080 --fullscreen --force-grab-cursor -- %command%```
+
+
+## Additional Tools
 
 ### multiplexer
 https://zellij.dev/
 
-https://www.youtube.com/watch?v=DzNmUNvnB04
-
-### sway
-https://github.com/WillPower3309/swayfx
-
-### pulsemixer
-https://github.com/GeorgeFilipkin/pulsemixer
-
-### abduco
-https://wiki.archlinux.org/title/Abduco
-
-### sshfs
-https://wiki.archlinux.org/title/SSHFS
-
-### ripgrep
-https://github.com/BurntSushi/ripgrep
-
-https://github.com/walderf/dotfiles/blob/main/.config/ripgrep/rg.conf
-
-### fuzzy-finder
-https://github.com/junegunn/fzf
-
-### zoxide
-https://github.com/ajeetdsouza/zoxide
-
-### bat
-https://github.com/sharkdp/bat
-
 ### sad
 https://github.com/ms-jpq/sad
+
+
+## Steam
+# Settings
+Disable pre-combile shader...
+
+## Shared library
+sudo groupadd steam
+sudo mkdir -p /home/shared/steam
+
+sudo usermod -aG steam beat
+sudo usermod -aG steam claire
+
+sudo chmod -R 2775 /home/shared/steam
+sudo chown -R root:steam /home/shared/steam
+
+ln -sf /home/shared/steam/common /home/beat/.steam/steam/steamapps/common
+ln -sf /home/shared/steam/common /home/claire/.steam/steam/steamapps/common
+
+## Packages
+ripgrep
+fd-find
+renameutils
+llama-cpp
+zoxide
+fzf
+mpv
+
+# Hyprland
+
+sudo dnf install hyprland hypridle
+systemctl --user enable --now hypridle.service

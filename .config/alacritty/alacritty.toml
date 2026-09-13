@@ -1,0 +1,34 @@
+[general]
+import = ["~/.config/alacritty/themes/one_dark_two.toml"]
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[cursor]
+blink_interval = 500
+
+[cursor.style]
+blinking = "On"
+shape = "Block"
+
+[scrolling]
+multiplier = 3
+
+[selection]
+save_to_clipboard = false
+
+[terminal.shell]
+program = "/usr/bin/zsh"
+
+[window]
+opacity = 1.0
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 16
+y = 16
+
