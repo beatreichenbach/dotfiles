@@ -1,0 +1,10 @@
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
+GRUB_DEFAULT=saved
+GRUB_DISABLE_SUBMENU=true
+GRUB_CMDLINE_LINUX="console=tty1 loglevel=3 rd.driver.blacklist=nouveau,nova_core modprobe.blacklist=nouveau,nova_corei"
+GRUB_DISABLE_RECOVERY="true"
+GRUB_ENABLE_BLSCFG=true
+GRUB_GFXMODE=1920x1080
+GRUB_GFXPAYLOAD_LINUX=2560x1440
+GRUB_TERMINAL_OUTPUT="gfxterm"
