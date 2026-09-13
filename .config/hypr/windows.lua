@@ -13,27 +13,12 @@ hl.window_rule({
     suppress_event = "maximize",
 })
 
-hl.window_rule({
-    -- Fix some dragging issues with XWayland
-    name  = "fix-xwayland-drags",
-    match = {
-        class      = "^$",
-        title      = "^$",
-        xwayland   = true,
-        float      = true,
-        fullscreen = false,
-        pin        = false,
-    },
-
-    no_focus = true,
-})
-
 -- Noctalia
 hl.window_rule({
     name = "noctalia-settings",
     match = {
-        class = "dev.noctalia.noctalia-qs",
-        title = "Noctalia",
+        class = "dev.noctalia.Noctalia",
+        title = "Noctalia Settings",
     },
     float = true,
 })
@@ -49,14 +34,26 @@ hl.window_rule({
     pin = true,
 })
 
-hl.window_rule({
-    name = "firefox-bitwarden",
-    match = {
-        class = "org.mozilla.firefox",
-        title = "Bitwarden",
-    },
-    float = true,
-})
+hl.on("window.title", function(w)
+    if not hl.get_active_monitor() then return end
+    local title = "Bitwarden Password Manager"
+    if (w.class == "org.mozilla.firefox" and not string.find(w.title, title)) then
+        hl.dispatch(
+            hl.dsp.window.float({
+                action = "enable",
+                window = w
+            })
+        )
+        hl.dispatch(
+            hl.dsp.window.resize({
+                x = 500,
+                y = 600,
+                relative = false,
+                window = w
+            })
+        )
+    end
+end)
 
 -- Discord
 hl.window_rule({
@@ -85,26 +82,9 @@ hl.window_rule({
     name = "jetbrains-float",
     match = {
         class = "^(jetbrains-.*)",
-        title = "^(win.*)",
+        float = true
     },
-    float = true,
-})
-
--- hl.window_rule({
---     name = "jetbrains-no-focus",
---     match = {
---         class = "^(jetbrains-.*)",
---     },
---     no_initial_focus = true,
--- })
-
-hl.window_rule({
-    name = "jetbrains-popups",
-    match = {
-        class = "^(jetbrains-.*)",
-        title = "Rename"
-    },
-    stay_focused = true,
+    stay_focused = true
 })
 
 hl.window_rule({
@@ -115,12 +95,22 @@ hl.window_rule({
     float = true,
 })
 
--- Jetbrains
+-- Houdini
 hl.window_rule({
     name = "houdini-launcher",
     match = {
         class = "houdini_launcher",
     },
     float = true,
+    center = true
+})
+
+-- Anyware Client
+hl.window_rule({
+    name = "anyware-client",
+    match = {
+        class = "pcoip-client",
+    },
+    workspace = 2,
     center = true
 })

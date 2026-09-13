@@ -5,7 +5,7 @@
 -- https://wiki.hypr.land/Configuring/Basics/Binds
 
 local mainMod = "SUPER"
-local menu = "qs -c noctalia-shell ipc call launcher toggle"
+local menu = "noctalia msg panel-toggle launcher"
 local terminal = "alacritty"
 local file = "caja"
 local screenshot = "hyprshot -m region"
@@ -18,9 +18,23 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({mode = "maximized"}))
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({mode = "fullscreen"}))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd(shutdown))
 
 hl.bind("Print", hl.dsp.exec_cmd(screenshot))
+hl.bind(mainMod .. " + SHIFT + L", function()
+    hl.timer(function()
+      hl.dispatch(hl.dsp.dpms({ action = "disable" }))
+    end, {timeout = 1, type = "oneshot"})
+  end)
+
+hl.bind(mainMod .. " + SHIFT + K", function()
+    hl.timer(function()
+      hl.dispatch(hl.dsp.dpms({ action = "enable" }))
+    end, {timeout = 1, type = "oneshot"})
+  end)
+
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))

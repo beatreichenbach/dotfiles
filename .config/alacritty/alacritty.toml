@@ -1,5 +1,5 @@
 [general]
-import = ["~/.config/alacritty/themes/one_dark_two.toml"]
+import = ["~/.config/alacritty/themes/noctalia.toml"]
 live_config_reload = true
 
 [colors]
