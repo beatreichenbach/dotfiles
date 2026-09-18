@@ -3,3 +3,5 @@
     email = 44111292+beatreichenbach@users.noreply.github.com
 [init]
     defaultBranch = main
+[core]
+	excludesfile = ~/.config/git/.gitignore
