@@ -37,7 +37,7 @@ hl.window_rule({
 hl.on("window.title", function(w)
     if not hl.get_active_monitor() then return end
     local title = "Bitwarden Password Manager"
-    if (w.class == "org.mozilla.firefox" and not string.find(w.title, title)) then
+    if (w.class == "org.mozilla.firefox" and string.find(w.title, title)) then
         hl.dispatch(
             hl.dsp.window.float({
                 action = "enable",
@@ -82,7 +82,8 @@ hl.window_rule({
     name = "jetbrains-float",
     match = {
         class = "^(jetbrains-.*)",
-        float = true
+	title = "^$|Rename",
+        float = true,
     },
     stay_focused = true
 })
