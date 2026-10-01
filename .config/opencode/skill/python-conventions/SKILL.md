@@ -95,6 +95,37 @@ log_level = "INFO"
 - Keep the `__version__` in the package `__init__.py` in sync with
   `version_variables` so semantic-release can bump it.
 
+## README badges
+
+Put the badges directly below the `#` title, separated by a blank line from the
+description. Use exactly these five, in this order.
+
+For a package published to PyPI:
+
+```md
+[![PyPI version](https://img.shields.io/pypi/v/<package>.svg)](https://pypi.org/project/<package>/)
+[![Python](https://img.shields.io/badge/python-<X.Y>%2B-blue.svg)](https://pypi.org/project/<package>/)
+[![License](https://img.shields.io/pypi/l/<package>.svg)](https://github.com/<owner>/<repo>/blob/main/LICENSE)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![ty](https://img.shields.io/badge/type%20checked-ty-261230.svg)](https://github.com/astral-sh/ty)
+```
+
+For a package that is not published to PyPI:
+
+```md
+[![GitHub release](https://img.shields.io/github/v/release/<owner>/<repo>.svg)](https://github.com/<owner>/<repo>/releases)
+[![Python](https://img.shields.io/badge/python-<X.Y>%2B-blue.svg)](https://github.com/<owner>/<repo>)
+[![License](https://img.shields.io/github/license/<owner>/<repo>.svg)](https://github.com/<owner>/<repo>/blob/main/LICENSE)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![ty](https://img.shields.io/badge/type%20checked-ty-261230.svg)](https://github.com/astral-sh/ty)
+```
+
+- Replace `<X.Y>` with the minimum supported Python version from
+  `requires-python`, e.g. `3.11+`.
+- Only the version and license badges differ: PyPI packages use the `pypi/*`
+  badges and link Python to the PyPI page, while non-PyPI packages use the
+  GitHub release badge and the repository URL.
+
 ## Licensing
 
 Default to GPL-3.0-or-later. MIT is acceptable when a permissive license is
