@@ -2,25 +2,31 @@
 
 ## Installation
 
-### don't
+### System
 
-The installation files have not been tested, don't use them.
-
-### stow
-
-Use stow to install the config files.
+Copy system files:
 
 ```shell
+cp -rf system/* /
+```
+
+### User
+
+Use stow to install the config files:
+
+```shell
+rm ~/.bash_logout ~/.bash_profile ~/.bash_history
+
 stow --adopt .
 git reset --hard
 stow -t ~ .
 ```
 
+Sudoers entries:
 
-
-
-
-
+```shell
+echo -e "${USER}\tALL=(ALL:ALL) ALL" > "/etc/sudoers.d/$USER"
+```
 
 ## Configuration
 
