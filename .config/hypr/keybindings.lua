@@ -7,7 +7,7 @@
 local mainMod = "SUPER"
 local menu = "noctalia msg panel-toggle launcher"
 local terminal = "alacritty"
-local file = "caja"
+local file = "nautilus"
 local screenshot = "hyprshot -m region"
 local shutdown = "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
 

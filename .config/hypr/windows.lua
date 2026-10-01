@@ -66,6 +66,16 @@ hl.window_rule({
     pin = true,
 })
 
+-- Disable middle mouse clicks
+hl.bind("mouse:274", function()
+    local window = hl.get_active_window()
+    if window ~= nil and string.match(window.class, "discord") then
+        hl.dispatch(hl.dsp.exec_cmd("wl-copy -p -c"))
+    else
+        hl.dispatch(hl.dsp.pass({ window = window }))
+    end
+end)
+
 
 -- OBS
 hl.window_rule({

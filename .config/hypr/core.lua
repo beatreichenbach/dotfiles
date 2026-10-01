@@ -30,6 +30,18 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("Discord")
 end)
 
+----------------
+----  MISC  ----
+----------------
+
+hl.config({
+    misc = {
+        force_default_wallpaper = 0,
+        disable_hyprland_logo   = true,
+        middle_click_paste      = false
+    },
+})
+
 -----------------------
 ----- PERMISSIONS -----
 -----------------------
