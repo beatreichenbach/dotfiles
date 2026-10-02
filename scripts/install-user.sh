@@ -9,5 +9,10 @@ user="$repo/user"
 cd "$user" && stow -t ~ .
 
 # Steam
-ln -sf /home/shared/steam/common ~/.steam/steam/steamapps/common
+steamapps="$HOME/.steam/steam/steamapps"
+mkdir -p "$steamapps"
+if [ -d "$steamapps/common" ] && [ ! -L "$steamapps/common" ]; then
+    rmdir "$steamapps/common" 2>/dev/null || true
+fi
+ln -sfn /home/shared/steam/common "$steamapps/common"
 systemctl --user enable --now steam-library.service
