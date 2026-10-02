@@ -54,4 +54,4 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
 # bun completions
-[ -s "/home/beat/.bun/_bun" ] && source "/home/beat/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
