@@ -4,25 +4,21 @@
 
 ### System
 
-Copy system files:
+Install system files:
 
 ```shell
-cp -rf system/* /
+sudo ./scripts/install-system.sh
 ```
 
 ### User
 
-Use stow to install the config files:
+Install user configuration:
 
 ```shell
-rm ~/.bash_logout ~/.bash_profile ~/.bash_history
-
-stow --adopt .
-git reset --hard
-stow -t ~ .
+./scripts/install-user.sh
 ```
 
-Sudoers entries:
+Sudoers entry for admin:
 
 ```shell
 echo -e "${USER}\tALL=(ALL:ALL) ALL" > "/etc/sudoers.d/$USER"
@@ -48,8 +44,6 @@ Console defaults: `/etc/vconsole.conf`
 
 ### GTK
 
-GTK is actually customized in `sway/config-theme`.
-
 The current GTK conf can be stored and restored with:
 ```shell
 dconf dump / > dump.dconf
@@ -57,21 +51,10 @@ dconf reset -f /
 dconf load / < dump.dconf
 ```
 
-Current theme used: `Qogir` which is available in the AUR:
-`qogir-gtk-theme qogir-icon-theme`
-
-However since I want custom options for the qogir theme:
-```shell
-git clone https://github.com/vinceliuice/Qogir-theme
-./install.sh --theme default --color standard --icon arch
-```
-
 ### xdg
 
 As many files as possible have been moved to the `~/.config` folder with the help of 
 [xdg-ninja](https://github.com/b3nj5m1n/xdg-ninja).
-
-Most of the configuration for xdg happens in the `.profile` file.
 
 https://wiki.archlinux.org/title/XDG_Base_Directory
 
@@ -79,16 +62,31 @@ https://wiki.archlinux.org/title/XDG_Base_Directory
 
 https://man.archlinux.org/man/xdg-desktop-portal-wlr.5
 
-
 ### Houdini
 
 Houdini requires qt5 to run.
+SELinux contexts/policies for the license server are set up by `scripts/install-houdini.sh`.
 
 ### Steam
 
 Use the following wrapper for most games:
 ```gamescope -W 1920 -H 1080 --fullscreen --force-grab-cursor -- %command%```
 
+Disable pre-compilation of shaders in Steam settings.
+
+#### Shared library
+
+Steam is very picky about ownership: everything under `steamapps/common` must be
+owned by the user currently running Steam. `steam-library` fixes this on login.
+`~/.config/systemd/user/steam-library.service` runs `steam-library` in the background
+after the graphical session starts, so it never blocks login.
+
+Create a shared steam library and enable the service:
+
+```shell
+sudo mkdir -p /home/shared/steam
+systemctl --user enable --now steam-library.service
+```
 
 ## Additional Tools
 
@@ -99,23 +97,6 @@ https://zellij.dev/
 https://github.com/ms-jpq/sad
 
 
-## Steam
-# Settings
-Disable pre-combile shader...
-
-## Shared library
-sudo groupadd steam
-sudo mkdir -p /home/shared/steam
-
-sudo usermod -aG steam beat
-sudo usermod -aG steam claire
-
-sudo chmod -R 2775 /home/shared/steam
-sudo chown -R root:steam /home/shared/steam
-
-ln -sf /home/shared/steam/common /home/beat/.steam/steam/steamapps/common
-ln -sf /home/shared/steam/common /home/claire/.steam/steam/steamapps/common
-
 ## Packages
 ripgrep
 fd-find
@@ -125,7 +106,46 @@ zoxide
 fzf
 mpv
 
-# Hyprland
+## Hyprland
 
 sudo dnf install hyprland hypridle
 systemctl --user enable --now hypridle.service
+
+## Keyring & SSH agent
+
+gnome-keyring provides the Secret Service (`org.freedesktop.secrets`) and is
+unlocked automatically at login via PAM. SSH uses a plain OpenSSH agent.
+
+### Install / enable
+
+```shell
+# Secret Service + PAM auto-unlock (provides pam_gnome_keyring.so)
+sudo dnf install gnome-keyring-pam
+
+# user units (no sudo)
+systemctl --user enable --now gnome-keyring-daemon.socket gnome-keyring-daemon.service
+systemctl --user enable --now ssh-agent.socket
+```
+
+`/etc/pam.d/greetd` already ships the `pam_gnome_keyring.so` lines with the
+Fedora `greetd` package; installing `gnome-keyring-pam` activates them. Auto
+unlock only targets a keyring named `login` whose password equals the account
+password. On a fresh setup remove the old default keyring so PAM creates it:
+
+```shell
+rm -f ~/.local/share/keyrings/{Default_keyring.keyring,default,user.keystore}
+```
+
+### Optional
+
+Keep keyring secrets out of swap:
+
+```shell
+sudo setcap cap_ipc_lock=+ep /usr/bin/gnome-keyring-daemon
+```
+
+Remove the GUI keyring manager (not required):
+
+```shell
+sudo dnf remove seahorse
+```

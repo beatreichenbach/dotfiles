@@ -3,6 +3,10 @@
 greetd
 greetd-tuigreet
 
+gnome-keyring
+gnome-keyring-pam
+openssh
+
 nvidia
 nvidia-utils
 alsa-plugins

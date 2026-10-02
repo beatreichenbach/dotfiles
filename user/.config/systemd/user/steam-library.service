@@ -1,0 +1,8 @@
+[Unit]
+Description=Prepare shared Steam library for the current user
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sudo -n /usr/local/bin/steam-library

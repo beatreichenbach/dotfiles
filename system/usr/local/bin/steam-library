@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# Prepare the shared Steam library for the invoking user.
+# Steam is very picky about file ownership: everything under steamapps/common
+# must be owned by the user running Steam for installs/updates/launches to work.
+# When a different user previously ran Steam, ownership is stale.
+#
+# Run via sudo (see /etc/sudoers.d/steam-library).
+# Records the last user in .previous_user so repeat logins skip the expensive recursive chown.
+#
+# Usage: sudo /usr/local/bin/steam-library
+
+set -eu
+
+user="${SUDO_USER:-}"
+if [ -z "$user" ]; then
+    echo "steam-library: must be run via sudo (SUDO_USER unset)" >&2
+    exit 1
+fi
+
+if ! id "$user" >/dev/null 2>&1; then
+    echo "steam-library: no such user: $user" >&2
+    exit 1
+fi
+
+common="/home/shared/steam/common"
+marker="$common/.previous_user"
+
+# Only chown when the owning user changes
+if [ ! -f "$marker" ] || [ "$(cat "$marker" 2>/dev/null)" != "$user" ]; then
+    echo "steam-library: chown -R $user:$user $common"
+    chown -R "$user:$user" "$common"
+    printf '%s\n' "$user" > "$marker"
+    chown "$user:$user" "$marker"
+fi
+
+# Steam recreates this symlink on startup. Force it back to the current user.
+legacy="/home/$user/.local/share/Steam/legacycompat/Steam.dll"
+if [ -f "$legacy" ]; then
+    ln -sf "$legacy" "$common/Steam.dll"
+fi
