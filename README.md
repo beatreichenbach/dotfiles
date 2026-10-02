@@ -78,14 +78,11 @@ Disable pre-compilation of shaders in Steam settings.
 
 Steam is very picky about ownership: everything under `steamapps/common` must be
 owned by the user currently running Steam. `steam-library` fixes this on login.
-`~/.config/systemd/user/steam-library.service` runs `steam-library` in the background
-after the graphical session starts, so it never blocks login.
 
 Create a shared steam library and enable the service:
 
 ```shell
-sudo mkdir -p /home/shared/steam
-systemctl --user enable --now steam-library.service
+sudo ./scripts/install-system.sh
 ```
 
 ## Additional Tools
