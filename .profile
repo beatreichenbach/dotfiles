@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Hardware
+export WLR_DRM_DEVICES=/dev/dri/card2:/dev/dri/card1
+export LIBVA_DRIVER_NAME=nvidia
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export NVD_BACKEND=direct
+
 # Initialize xdg, see:
 # https://github.com/b3nj5m1n/xdg-ninja
 
