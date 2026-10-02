@@ -10,3 +10,4 @@ cd "$user" && stow -t ~ .
 
 # Steam
 ln -sf /home/shared/steam/common ~/.steam/steam/steamapps/common
+systemctl --user enable --now steam-library.service
