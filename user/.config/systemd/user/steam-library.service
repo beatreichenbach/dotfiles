@@ -6,3 +6,6 @@ PartOf=graphical-session.target
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/sudo -n /usr/local/bin/steam-library
+
+[Install]
+WantedBy=default.target

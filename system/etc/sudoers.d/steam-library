@@ -1,1 +1,1 @@
-%users ALL=(root) NOPASSWD: /usr/local/bin/steam-library
+ALL ALL=(root) NOPASSWD: /usr/local/bin/steam-library
