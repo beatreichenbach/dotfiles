@@ -7,6 +7,7 @@ export WLR_DRM_DEVICES=/dev/dri/card2:/dev/dri/card1  # Force card2 as primary G
 export LIBVA_DRIVER_NAME=nvidia
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export NVD_BACKEND=direct
+export __NV_DISABLE_EXPLICIT_SYNC=1  # Fixes XWayland/Hyprland stalls on NVIDIA 615.x
 
 # XDG, see: https://github.com/b3nj5m1n/xdg-ninja
 export XDG_DATA_HOME="$HOME/.local/share"
