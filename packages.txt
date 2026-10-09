@@ -1,81 +1,64 @@
 # --- system ---
 
 greetd
-greetd-tuigreet
-
+tuigreet
 gnome-keyring
 gnome-keyring-pam
 openssh
 
-nvidia
-nvidia-utils
-alsa-plugins
-alsa-utils
-pulseaudio
-pulseaudio-alsa
+akmod-nvidia
+nvidia-settings
+
+pipewire
+pipewire-pulseaudio
+pipewire-alsa
 wireplumber
 
-# --- apps: desktop ---
+# --- desktop ---
 
-sway
-wayland
-autotiling
+hyprland
+hypridle
+hyprpolkitagent
+hyprpicker
+hyprshot
+hyprland-uwsm
+hyprcursor
+noctalia
+matugen
 
-wlroots-git
-xdg-desktop-portal-wlr-git
+xdg-desktop-portal
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
 
-tofi
-eww-git
-wpaperd
-swaybg
+adw-gtk3-theme
 
-nemo
+firefox
+alacritty
+mpv
 
-ttf-jetbrains-mono-nerd
-
-# --- apps: utils ---
+# --- utils ---
 
 zoxide
 stow
-
 tree
-ranger
 less
 bat
-
-neofetch
 btop
-nvtop
 
 grim
-swappy
 wl-clipboard
-hyprpicker-git
 
-xdg-ninja
+ripgrep
+fd-find
+renameutils
+fzf
 
-# --- apps: work ---
+llama-cpp
+
+# --- work ---
 
 zsh
-zsh-antidote
-alacritty
-starship
-neovim
-
-python
-
-pycharm-community-jre
+python3
+nodejs22
+git
 sublime-merge
-obsidian
-
-# --- apps: other ---
-
-firefox
-google-chrome-stable
-mpv
-spotify
-
-
-
-
-
