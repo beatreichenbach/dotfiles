@@ -21,7 +21,7 @@ hl.config({
         kb_layout  = "us",
         kb_variant = "",
         kb_model   = "",
-        kb_options = "",
+        kb_options = "numpad:mac",  -- Always force numlock on
         kb_rules   = "",
         numlock_by_default = true,
 
