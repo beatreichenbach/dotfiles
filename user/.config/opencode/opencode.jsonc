@@ -7,5 +7,23 @@
     "edit": {
       "~/dev/**": "deny"
     }
+  },
+  "instructions": [
+    "~/.config/opencode/instructions/houdini-mcp.md"
+  ],
+  "mcp": {
+    "servers": {
+      "houdini": {
+        "type": "local",
+        "command": [
+          "/home/beat/dev/houdini-mcp/.venv/bin/python",
+          "-m",
+          "houdini_mcp"
+        ],
+        "environment": {
+          "HOUDINI_MCP_AUTO_LAYOUT": "1"
+        }
+      }
+    }
   }
 }

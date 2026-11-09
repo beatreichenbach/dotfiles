@@ -1,4 +1,7 @@
 *
 !.gitignore
-!skill/
+!skills/
+!skills/**
+!instructions/
+!instructions/**
 !opencode.jsonc

@@ -126,6 +126,14 @@ For a package that is not published to PyPI:
   badges and link Python to the PyPI page, while non-PyPI packages use the
   GitHub release badge and the repository URL.
 
+## README prose
+
+Write README prose one sentence per line (OSPL): put each sentence on its own
+line and do not hard-wrap within a sentence. This keeps git diffs line-scoped.
+
+Apply it only where a line is a sentence: code blocks, badge blocks, tables,
+and short list items are left as they are.
+
 ## Licensing
 
 Default to GPL-3.0-or-later. MIT is acceptable when a permissive license is
