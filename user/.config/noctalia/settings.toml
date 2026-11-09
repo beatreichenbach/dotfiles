@@ -104,6 +104,7 @@ source = "community"
     builtin_ids = [ "alacritty", "btop", "gtk3", "gtk4", "hyprland", "qt" ]
 
 [wallpaper]
+enabled = true
 directory = "/home/beat/files/wallpapers/gmunk"
 
     [wallpaper.default]

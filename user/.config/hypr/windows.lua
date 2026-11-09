@@ -1,9 +1,46 @@
 --------------------------------
----- WINDOWS AND WORKSPACES ----
+---- WORKSPACES ----
+--------------------------------
+
+-- https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
+
+-- Workspace 9: Recording
+hl.workspace_rule({
+    workspace   = "9",
+    gaps_out    = { top = 0, right = 1280, bottom = 0, left = 1280 },
+    float_gaps  = 0,
+    border_size = 0,
+})
+
+-- Hide the Noctalia bar and its wallpaper
+local wallpaperToggle = "$XDG_CONFIG_HOME/hypr/wallpaper-enabled.sh"
+local recording = false
+
+local function set_recording_mode(on, force)
+    if on == recording and not force then return end
+    recording = on
+    hl.exec_cmd("noctalia msg " .. (on and "bar-hide" or "bar-show") .. " default")
+    hl.exec_cmd(wallpaperToggle .. " " .. tostring(not on))
+    hl.exec_cmd("noctalia msg config-reload")
+end
+
+hl.on("workspace.active", function(ws)
+    if not ws then return end
+    set_recording_mode(ws.id == 9)
+end)
+
+hl.on("hyprland.start", function()
+    hl.timer(function()
+        local ws = hl.get_active_workspace()
+        set_recording_mode(ws ~= nil and ws.id == 9, true)
+    end, { timeout = 2, type = "oneshot" })
+end)
+
+--------------------------------
+---- WINDOWS ----
 --------------------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
--- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
 hl.window_rule({
     -- Ignore maximize requests from all apps. You'll probably like this.

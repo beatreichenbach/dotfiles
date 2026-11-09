@@ -49,6 +49,14 @@ As many files as possible have been moved to the `~/.config` folder with the hel
 
 <https://wiki.archlinux.org/title/XDG_Base_Directory>
 
+### Environment variables
+
+Update a variable live without re-logging in:
+
+```shell
+systemctl --user set-environment VARIABLE_NAME="value"
+```
+
 ### Steam
 
 Use the following wrapper for most games:

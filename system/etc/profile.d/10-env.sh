@@ -42,6 +42,7 @@ export _Z_DATA="$XDG_DATA_HOME/z"
 # General
 export TERM="xterm-256color"  # Support 256 colors
 export EDITOR="vim"
+export LC_COLLATE=C  # Sorting underscores first
 
 # Nuke
 export NUKE_PATH="$XDG_CONFIG_HOME/nuke"

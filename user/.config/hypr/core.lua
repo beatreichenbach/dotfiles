@@ -21,7 +21,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("noctalia")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
     hl.exec_cmd("firefox")
-    hl.exec_cmd("Discord")
+    hl.exec_cmd("discord")
 end)
 
 ----------------
@@ -30,7 +30,9 @@ end)
 
 hl.config({
     misc = {
+	background_color = 0x000000,
         force_default_wallpaper = 0,
+	disable_splash_rendering = true,
         disable_hyprland_logo   = true,
         middle_click_paste      = false
     },
